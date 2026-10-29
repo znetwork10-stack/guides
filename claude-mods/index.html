@@ -79,7 +79,7 @@ h1 .g { color: var(--cl); }
 .ok { display: flex; gap: 8px; align-items: baseline; color: var(--dim); font-size: 15.5px; }
 .ok::before { content: "✓"; color: var(--ok); font-weight: 900; }
 .tip { color: var(--dim); font-size: 15px; border-right: 3px solid var(--gold); padding-right: 10px; }
-.btn { display: inline-block; font-weight: 800; font-size: 15px; background: rgba(255,255,255,0.1); border: 1px solid var(--line); border-radius: 8px; padding: 0 8px; direction: ltr; unicode-bidi: isolate; }
+.btn { display: inline-block; font-weight: 800; font-size: 15px; background: rgba(255,255,255,0.1); border: 1px solid var(--line); border-radius: 8px; padding: 0 8px; direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
 
 .cmd { display: flex; align-items: stretch; background: var(--code); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
 .cmd code { flex: 1; min-width: 0; direction: rtl; text-align: right; font-family: var(--f-he); font-size: 16px; line-height: 1.55; padding: 13px 14px; color: #e9ecff; white-space: pre-wrap; word-break: break-word; }
@@ -89,6 +89,13 @@ h1 .g { color: var(--cl); }
 .copy.done { background: var(--ok); color: var(--ink); }
 
 a.ext { color: var(--gold); font-weight: 800; }
+
+.what { background: rgba(217, 119, 87, 0.10); border: 1px solid rgba(217, 119, 87, 0.45); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.what h2 { margin: 0; font-size: 24px; font-weight: 900; }
+.what p { margin: 0; }
+.flow { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.flow li { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 9px 12px; font-weight: 600; }
+.flow li > span:first-child { flex: none; width: 30px; height: 30px; border-radius: 15px; display: grid; place-items: center; background: var(--cl); color: var(--ink); font-weight: 900; }
 
 /* the "what you'll see" mini mock-up under each mod */
 .see { background: #0e1120; border: 1px solid var(--line); border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; direction: ltr; font-family: var(--f-mono); font-size: 13px; color: #c9ccd6; }
@@ -145,7 +152,18 @@ small.note { color: var(--dim); font-size: 13px; text-align: center; }
     <div class="fact"><b>בלחיצה</b><span>מפעילים מתוך האפליקציה</span></div>
   </div>
 
-  <p style="margin:0">איך זה עובד, במשפט אחד: אתם כותבים לקלוד מה המוד צריך לעשות, <b>קלוד בונה אותו</b>, והאפליקציה שואלת אם להפעיל.</p>
+  <div class="what">
+    <h2>מה זה בעצם מוד?</h2>
+    <p><b>המודים כבר קיימים בתוך קלוד.</b> לא צריך להתקין שום דבר.</p>
+    <p><b>אבל אין רשימה של מודים מוכנים.</b> כל מוד נבנה ברגע שמבקשים אותו:</p>
+    <ol class="flow">
+      <li><span>1</span>כותבים לקלוד מה רוצים, למשל: "תבנה לי דשבורד"</li>
+      <li><span>2</span>קלוד בונה את המוד לבד</li>
+      <li><span>3</span><span>מופיעה שאלה אם להפעיל. לוחצים <span class="btn">Turn them on</span></span></li>
+      <li><span>4</span>המוד מופיע ועובד</li>
+    </ol>
+    <p class="tip">ה"אישור" שאולי ראיתם הוא שלב 3. הוא מופיע רק אחרי שמבקשים מקלוד לבנות מוד. את שלושת המודים מהסרטון מבקשים עם המשפטים המוכנים בחלק 2.</p>
+  </div>
 
   <nav class="map" aria-label="תוכן">
     <a href="#install"><b>חלק 1 · הכנה</b><span>3 צעדים, בערך 5 דקות</span></a>
@@ -178,7 +196,7 @@ small.note { color: var(--dim); font-size: 13px; text-align: center; }
 
   <section class="step">
     <div class="step-head"><div class="n">3</div><h3>מאשרים את המודים בפעם הראשונה</h3></div>
-    <p>ברגע שתבקשו את המוד הראשון (חלק 2), האפליקציה תשאל אם להפעיל את המודים שקלוד כותב. לוחצים <span class="btn">Turn them on</span>.</p>
+    <p>אין כאן מה ללחוץ מראש. ברגע שתבקשו את המוד הראשון (חלק 2), האפליקציה תשאל אם להפעיל את המודים שקלוד כותב. לוחצים <span class="btn">Turn them on</span>.</p>
     <div class="ok">כשקלוד מסיים לענות, המוד נטען ומופיע. אין צורך להפעיל מחדש.</div>
   </section>
 
